@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.huawei.model.Person;
 
-public interface PersonMapper {
+public interface IPersonDao {
 	/**
 	 * 插入一条记录
 	 * @param person
