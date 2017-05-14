@@ -14,30 +14,30 @@
 	<!-- 配置数据源 -->
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
 		<!-- 基本属性 url、user、password -->  
-	    <property name="driverClassName" value="com.mysql.jdbc.Driver" />  
-	    <property name="url" value="jdbc:mysql://localhost:3306/mybatis" />  
-	    <property name="username" value="root" />  
-	    <property name="password" value="root" />  
-	    <property name="initialSize" value="1" />  
-	    <property name="minIdle" value="1" />   
-	    <property name="maxActive" value="20" />  
-    	<property name="maxWait" value="60000" />
+	    <property name="driverClassName" value="${jdbc.driverClassName}" />  
+	    <property name="url" value="${jdbc.url}" />  
+	    <property name="username" value="${jdbc.username}" />  
+	    <property name="password" value="${jdbc.password}" />  
+	    <property name="initialSize" value="${jdbc.initialSize}" />  
+	    <property name="minIdle" value="${jdbc.minIdle}" />   
+	    <property name="maxActive" value="${jdbc.maxActive}" />  
+    	<property name="maxWait" value="${jdbc.maxWait}" />
     	<!-- 超过时间限制是否回收 -->
-        <property name="removeAbandoned" value="true" />
+        <property name="removeAbandoned" value="${jdbc.removeAbandoned}" />
         <!-- 超过时间限制多长； -->
-        <property name="removeAbandonedTimeout" value="180" />
+        <property name="removeAbandonedTimeout" value="${jdbc.removeAbandonedTimeout}" />
         <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
-        <property name="timeBetweenEvictionRunsMillis" value="60000" />
+        <property name="timeBetweenEvictionRunsMillis" value="${jdbc.timeBetweenEvictionRunsMillis}" />
         <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
-        <property name="minEvictableIdleTimeMillis" value="300000" />
+        <property name="minEvictableIdleTimeMillis" value="${jdbc.minEvictableIdleTimeMillis}" />
         <!-- 用来检测连接是否有效的sql，要求是一个查询语句-->
-        <property name="validationQuery" value="SELECT 1" />
+        <property name="validationQuery" value="${jdbc.validationQuery}" />
         <!-- 申请连接的时候检测 -->
-        <property name="testWhileIdle" value="true" />
+        <property name="testWhileIdle" value="${jdbc.testWhileIdle}" />
         <!-- 申请连接时执行validationQuery检测连接是否有效，配置为true会降低性能 -->
-        <property name="testOnBorrow" value="false" />
+        <property name="testOnBorrow" value="${jdbc.testOnBorrow}" />
         <!-- 归还连接时执行validationQuery检测连接是否有效，配置为true会降低性能  -->
-        <property name="testOnReturn" value="false" />
+        <property name="testOnReturn" value="${jdbc.testOnReturn}" />
 	</bean>
 
 	<!-- Mybatis文件 -->

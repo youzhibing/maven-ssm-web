@@ -12,8 +12,8 @@
      http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd  
      ">
 
-	<!-- 完成请求和注解POJO的映射 -->
-	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+	<!-- 自动注入 -->
+	<context:component-scan base-package="com.yzb" />
 
 	<!-- 对转向页面的路径解析。prefix：前缀， suffix：后缀 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"

@@ -1,5 +1,7 @@
 package com.yzb.model;
 
+import com.alibaba.fastjson.JSON;
+
 /**
  * person 实体
  * @author Administrator
@@ -32,6 +34,6 @@ public class Person {
 	
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", name=" + name + "]";
+		return JSON.toJSONString(this);
 	}
 }

@@ -10,6 +10,9 @@
 	<properties>
 		<!-- spring版本号 -->
 		<spring.version>4.0.2.RELEASE</spring.version>
+		
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 	<dependencies>
 		<!-- spring核心包 -->
@@ -67,24 +70,31 @@
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
-			<version>3.3.0</version>
+			<version>3.4.1</version>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.0.8</version>
+			<version>5.1.38</version>
 		</dependency>
 		<!-- 阿里巴巴的数据库连接池 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
-			<version>1.0.16</version>
+			<version>1.0.26</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+		<dependency>
+		    <groupId>com.alibaba</groupId>
+		    <artifactId>fastjson</artifactId>
+		    <version>1.2.17</version>
+		</dependency>
+		
 		<!-- spring结成mybatis -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
-			<version>1.2.3</version>
+			<version>1.3.1</version>
 		</dependency>
 		<!-- jsp标准标签库 -->
 		<dependency>
@@ -114,6 +124,6 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>maven-ssm-web</finalName>
+		<finalName>maven-ssm-web</finalName> 
 	</build>
 </project>

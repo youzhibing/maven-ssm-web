@@ -8,7 +8,7 @@
     <typeAliases>    
          <typeAlias type="com.yzb.model.Person" alias="Person"/>  
     </typeAliases>
-  	<mappers>  
-        <package name="dbmappers"/>
+  	<mappers>
+  		<mapper resource="dbmappers/person.xml"/>
     </mappers>
 </configuration>  
