@@ -45,7 +45,7 @@
 		<property name="configLocation" value="classpath:mybatis-config.xml" /> 
 		<property name="dataSource" ref="dataSource" />
 		<!-- 映射文件路径 -->
-		<!--  <property name="mapperLocations" value="com/huawei/mapping/*.xml" />-->
+		<property name="mapperLocations" value="classpath*:dbmappers/*.xml" />
 	</bean>
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
