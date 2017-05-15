@@ -1,8 +1,64 @@
 <?xml version="1.0" encoding="UTF-8" ?>
  <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yzb.dao.IPersonDao">
+	<resultMap id="detailedPersonResultMap"  type="Person">
+		<id property="id" column="person_id"/>
+		<result property="name" column="person_name"/>
+		<result property="age" column="person_age"/>
+		<association property="homeAddress" javaType="Address" columnPrefix="address_">
+			<id property="id" column="id"/>
+			<result property="country" column="country"/>
+			<result property="province" column="province"/>
+			<result property="city" column="city"/>
+			<result property="town" column="town"/>
+			<result property="village" column="village"/>
+			<result property="street" column="street"/>
+			<result property="houseNumber" column="houseNumber"/>
+			<result property="personId" column="personId"/>
+		</association>
+		<collection property="books" ofType="Book" columnPrefix="book_">
+			<id property="id" column="id"/>
+			<result property="name" column="name"/>
+			<result property="price" column="price"/>
+			<result property="publisher" column="publisher"/>
+			<result property="personId" column="personId"/>
+		</collection>
+	</resultMap>
+
+	<sql id="personColumns">
+		select
+			p.id as person_id,
+			p.name as person_name,
+			p.age as person_age,
+			a.id as address_id,
+			a.country as address_country,
+			a.province as address_province,
+			a.city as address_city,
+			a.town as address_town,
+			a.village as address_village,
+			a.street as address_street,
+			a.houseNumber as address_houseNumber,
+			a.personId as address_personId,
+			b.id as book_id,
+			b.name as book_name,
+			b.price as book_price,
+			b.publisher as book_publisher,
+			b.personId as book_personId
+		from person p
+			left outer join address a on p.id = a.personId
+			left outer join book b on p.id = b.personId
+	</sql>
+
 	<!-- 查询所有person -->  
-	<select id="queryAll" resultType="Person" >  
-	    select id,name,age from person  
+	<select id="listAllPerson" resultMap="detailedPersonResultMap" >  
+		<include refid="personColumns"/>
+	</select>
+	
+	<insert id="savePerson" parameterType="Person">
+	</insert>
+	
+	<select id="getPerson" resultMap="detailedPersonResultMap">
+		<include refid="personColumns"/>
+		where p.id = #{id}
 	</select>
 </mapper>

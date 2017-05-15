@@ -12,14 +12,16 @@ import com.yzb.service.IPersonService;
 
 @Controller
 @RequestMapping("/personController")
-public class PersonController {
-	
+public class PersonController
+{
+
 	@Autowired
 	private IPersonService personService;
 
 	@RequestMapping("/showPerson")
-	public String showPersons(Model model){
-		List<Person> persons = personService.loadPersons();
+	public String showPersons(Model model)
+	{
+		List<Person> persons = personService.listAllPerson();
 		model.addAttribute("persons", persons);
 		return "showperson";
 	}

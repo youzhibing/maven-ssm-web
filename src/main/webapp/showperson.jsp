@@ -15,17 +15,15 @@
 		<%  
 			out.println("This is Tomcat Server 111111！");  
 		%>  
-	    <table>
-	    	<tr>
-	    		<th>姓名</th>
-	    		<th>年龄</th>
-	    	</tr>
+			<br />
 	    	<c:forEach items="${persons}" var="person">
-	    		<tr>
-	    			<td>${person.name }</td>
-	    			<td>${person.age }</td>
-	    		</tr>
+	    		${person.name }, ${person.age }<br />&nbsp;&nbsp;
+	    		${person.homeAddress.country }&nbsp;${person.homeAddress.province }&nbsp;${person.homeAddress.city }&nbsp;
+	    		${person.homeAddress.town }&nbsp;${person.homeAddress.village }&nbsp;${person.homeAddress.street }&nbsp;${person.homeAddress.houseNumber }
+	    		<br />
+	    		<c:forEach items="${person.books}" var="book">
+	    			&nbsp;&nbsp;${book.name}, ${book.price }, ${book.publisher }<br />
+	    		</c:forEach>
 	    	</c:forEach>
-	    </table>
 	</body>
 </html>

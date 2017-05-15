@@ -10,14 +10,16 @@ import com.yzb.model.Person;
 import com.yzb.service.IPersonService;
 
 @Service
-public class PersonServiceImpl implements IPersonService {
-	
+public class PersonServiceImpl implements IPersonService
+{
+
 	@Autowired
 	private IPersonDao personDao;
 
 	@Override
-	public List<Person> loadPersons() {
-		return personDao.queryAll();
+	public List<Person> listAllPerson()
+	{
+		return personDao.listAllPerson();
 	}
-	
+
 }

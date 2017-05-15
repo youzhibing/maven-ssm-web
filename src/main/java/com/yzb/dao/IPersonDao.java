@@ -9,11 +9,18 @@ public interface IPersonDao {
 	 * 插入一条记录
 	 * @param person
 	 */
-	void insert(Person person);
+	void savePerson(Person person);
 	
 	/**
 	 * 查询所有
 	 * @return
 	 */
-	List<Person> queryAll();
+	List<Person> listAllPerson();
+	
+	/**
+	 * 查询某个person
+	 * @param id
+	 * @return
+	 */
+	Person getPerson(int id);
 }
