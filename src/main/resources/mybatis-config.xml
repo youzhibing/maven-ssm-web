@@ -9,5 +9,10 @@
          <typeAlias type="com.yzb.model.Person" alias="Person"/>
          <typeAlias type="com.yzb.model.Book" alias="Book"/>
          <typeAlias type="com.yzb.model.Address" alias="Address"/>
+         
+         <!-- 每一个在包 com.yzb.model中的 Java Bean，在没有注解的情况下，会使用 Bean 的首字母小写的非限定类名来作为它的别名.
+         	 com.yzb.model.Person的别名是person
+         	 不包含com.yzb.model子包下得java Bean -->
+         <!-- <package name="com.yzb.model"/> -->
     </typeAliases>
 </configuration>  
