@@ -55,7 +55,23 @@
 	</select>
 	
 	<insert id="savePerson" parameterType="Person">
+		insert into person(name, age) 
+		values(#{name}, #{age})
 	</insert>
+	
+	<select id="nameCount" parameterType="string" resultType="int">
+		select count(*) from person
+		where name = #{name}
+	</select>
+	
+	<delete id="removePerson" parameterType="int">
+		delete from person where id = #{id}
+	</delete>
+	
+	<update id="updatePerson" parameterType="Person">
+		update person set name = #{Person}, age=#{age}
+		where id = #{id}
+	</update>
 	
 	<select id="getPerson" resultMap="detailedPersonResultMap">
 		<include refid="personColumns"/>

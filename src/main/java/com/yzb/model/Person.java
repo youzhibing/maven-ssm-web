@@ -20,7 +20,16 @@ public class Person
 	
 	private List<Book> books;
 	
-	
+	public Person()
+	{
+	}
+
+	public Person(String name, int age)
+	{
+		this.name = name;
+		this.age = age;
+	}
+
 	public int getId()
 	{
 		return id;

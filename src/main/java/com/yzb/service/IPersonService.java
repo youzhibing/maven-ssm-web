@@ -11,4 +11,6 @@ public interface IPersonService {
 	 * @return
 	 */
 	List<Person> listAllPerson();
+	
+	boolean updatePerson(Person person);
 }
