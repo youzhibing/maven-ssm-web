@@ -4,14 +4,14 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">  
       
 <configuration>  
-    <!-- 全局别名设置，在映射文件中只需写别名，而不必写出整个类路径  -->  
+    <!-- 全局别名设置，在映射文件中只需写别名，而不必写出整个类路径   只要保证此处取的别名与映射文件中用到的别名不区分大小写后相等，那么就能够对应上-->  
     <typeAliases>    
          <typeAlias type="com.yzb.model.Person" alias="Person"/>
          <typeAlias type="com.yzb.model.Book" alias="Book"/>
          <typeAlias type="com.yzb.model.Address" alias="Address"/>
          
          <!-- 每一个在包 com.yzb.model中的 Java Bean，在没有注解的情况下，会使用 Bean 的首字母小写的非限定类名来作为它的别名.
-         	 com.yzb.model.Person的别名是person
+         	 com.yzb.model.Person的别名是person（这是官方文档这么说， 两边映射的时候，应该还有大小写的处理， 需要看源码）
          	 不包含com.yzb.model子包下得java Bean -->
          <!-- <package name="com.yzb.model"/> -->
     </typeAliases>
