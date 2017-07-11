@@ -59,5 +59,6 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
+	<!-- 声明式开启 -->
 	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
 </beans>

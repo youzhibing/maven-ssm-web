@@ -12,3 +12,5 @@ spring事务的隔离级别与传播行为
 增加redis做缓存
 	http://blog.csdn.net/defonds/article/details/48716161/
 	spring 4.1以及之后的版本才有CachingConfigurerSupport
+	缓存是用aop实现的，在ContextLoaderListener(spring.xml)中实例化缓存的代理类，DispatcherServlet(spring-mvc)中实例化不了缓存的代理类， 
+	最好将controller与service的实例化过程分开处理，避免实例化多次，而造成了覆盖的问题

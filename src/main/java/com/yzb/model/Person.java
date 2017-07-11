@@ -1,5 +1,6 @@
 package com.yzb.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.alibaba.fastjson.JSON;
@@ -10,8 +11,10 @@ import com.alibaba.fastjson.JSON;
  * @author Administrator
  *
  */
-public class Person
+public class Person implements Serializable
 {
+	private static final long serialVersionUID = 1L;
+	
 	private int id;
 	private String name;
 	private int age;

@@ -1,14 +1,11 @@
 package com.yzb.config;
 
-import java.lang.reflect.Method;
-
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheManager;
@@ -16,8 +13,8 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 
-@Configuration
-@EnableCaching
+/*@Configuration
+@EnableCaching*/
 public class RedisCacheConfig extends CachingConfigurerSupport
 {
 	@Value("${redis.host}")
@@ -56,8 +53,6 @@ public class RedisCacheConfig extends CachingConfigurerSupport
 	{
 		RedisTemplate<String, String> redisTemplate = new RedisTemplate<String, String>();
 		redisTemplate.setConnectionFactory(cf);
-		//redisTemplate.setValueSerializer(jackson2JsonRedisSerializer);
-		//redisTemplate.afterPropertiesSet();
 		return redisTemplate;
 	}
 

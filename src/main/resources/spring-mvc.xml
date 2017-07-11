@@ -12,11 +12,7 @@
      http://www.springframework.org/schema/mvc/spring-mvc.xsd  
      ">
 
-	<!-- 自动注入 -->
-	<context:component-scan base-package="com.yzb">
-		<context:exclude-filter type="regex"
-			expression="com.yzb.config.*" />		<!-- 不扫描com.yzb.config -->
-	</context:component-scan>
+	<context:component-scan base-package="com.yzb.controller" />
 
 	<!-- @ResponseBody采用fastjson输出json -->
 	<mvc:annotation-driven>

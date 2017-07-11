@@ -3,6 +3,7 @@ package com.yzb.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -20,8 +21,10 @@ public class PersonServiceImpl implements IPersonService
 	private IPersonDao personDao;
 
 	@Override
+	@Cacheable(cacheNames = {"allPersons"})
 	public List<Person> listAllPerson()
 	{
+		System.out.println("service 调用了dao层");
 		return personDao.listAllPerson();
 	}
 
