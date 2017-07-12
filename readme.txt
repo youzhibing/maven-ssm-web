@@ -14,3 +14,6 @@ spring事务的隔离级别与传播行为
 	spring 4.1以及之后的版本才有CachingConfigurerSupport
 	缓存是用aop实现的，在ContextLoaderListener(spring.xml)中实例化缓存的代理类，DispatcherServlet(spring-mvc)中实例化不了缓存的代理类， 
 	最好将controller与service的实例化过程分开处理，避免实例化多次，而造成了覆盖的问题
+
+fastjson实现缓存序列化
+	实现一个类（可以是匿名类不类）实现RedisSerializer<T>，重写其方法， 并将该类的实例设置成redisTemplate的valueSerializer
