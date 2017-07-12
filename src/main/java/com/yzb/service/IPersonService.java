@@ -12,5 +12,12 @@ public interface IPersonService {
 	 */
 	List<Person> listAllPerson();
 	
+	/**
+	 * 查询某个人的信息
+	 * @param personId
+	 * @return
+	 */
+	Person getPerson(int personId);
+	
 	boolean updatePerson(Person person);
 }

@@ -1,13 +1,9 @@
 package com.yzb.model;
 
-import java.io.Serializable;
-
 import com.alibaba.fastjson.JSON;
 
-public class Book implements Serializable
+public class Book
 {
-	private static final long serialVersionUID = 1L;
-	
 	private int id;
 	private String name;
 	private String price;

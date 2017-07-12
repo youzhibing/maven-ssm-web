@@ -35,5 +35,10 @@ public class PersonServiceImpl implements IPersonService
 		return false;
 	}
 
+	@Override
+	public Person getPerson(int personId)
+	{
+		return personDao.getPerson(personId);
+	}
 	
 }

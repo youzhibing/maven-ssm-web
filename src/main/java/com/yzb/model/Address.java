@@ -1,13 +1,9 @@
 package com.yzb.model;
 
-import java.io.Serializable;
-
 import com.alibaba.fastjson.JSON;
 
-public class Address implements Serializable
+public class Address
 {
-	private static final long serialVersionUID = 1L;
-	
 	private int id;
 	private String country;
 	private String province;
