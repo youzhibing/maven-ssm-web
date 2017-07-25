@@ -1,7 +1,5 @@
 package com.yzb.config;
 
-import javax.annotation.PostConstruct;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
@@ -33,14 +31,6 @@ public class RedisCacheConfig extends CachingConfigurerSupport
 
 	@Value("${redis.expireTime}")
 	private int expireTime;
-
-	@PostConstruct
-	public void init()
-	{
-		System.out.println("RedisCacheConfig init");
-		System.out.println(hostName + " " + port + " " + password + " "
-				+ expireTime);
-	}
 
 	@Bean
 	public JedisConnectionFactory redisConnectionFactory()

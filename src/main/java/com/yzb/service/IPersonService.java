@@ -3,6 +3,7 @@ package com.yzb.service;
 import java.util.List;
 
 import com.yzb.model.Person;
+import com.yzb.util.DataSource;
 
 public interface IPersonService {
 
@@ -17,6 +18,7 @@ public interface IPersonService {
 	 * @param personId
 	 * @return
 	 */
+	@DataSource("slave")
 	Person getPerson(int personId);
 	
 	boolean updatePerson(Person person);

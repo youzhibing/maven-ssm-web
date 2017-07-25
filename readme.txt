@@ -17,3 +17,6 @@ spring事务的隔离级别与传播行为
 
 fastjson实现缓存序列化
 	实现一个类（可以是匿名类不类）实现RedisSerializer<T>，重写其方法， 并将该类的实例设置成redisTemplate的valueSerializer
+	
+mysql主从复制，读写分离
+	http://blog.csdn.net/zhouzhiwengang/article/details/51087920

@@ -11,8 +11,8 @@
      http://www.springframework.org/schema/tx 
      http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-	<!-- 配置数据源 -->
-	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+	<!-- master数据源 -->
+	<bean id="masterDataSource" class="com.alibaba.druid.pool.DruidDataSource">
 		<!-- 基本属性 url、user、password -->  
 	    <property name="driverClassName" value="${jdbc.driverClassName}" />  
 	    <property name="url" value="${jdbc.url}" />  
@@ -40,6 +40,39 @@
         <property name="testOnReturn" value="${jdbc.testOnReturn}" />
 	</bean>
 
+	<!-- slave数据源 -->
+	<bean id="slaveDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+	    <property name="driverClassName" value="${slave.jdbc.driverClassName}" />  
+	    <property name="url" value="${slave.jdbc.url}" />  
+	    <property name="username" value="${slave.jdbc.username}" />  
+	    <property name="password" value="${slave.jdbc.password}" />  
+	    <property name="initialSize" value="${slave.jdbc.initialSize}" />  
+	    <property name="minIdle" value="${slave.jdbc.minIdle}" />   
+	    <property name="maxActive" value="${slave.jdbc.maxActive}" />  
+    	<property name="maxWait" value="${slave.jdbc.maxWait}" />
+        <property name="removeAbandoned" value="${slave.jdbc.removeAbandoned}" />
+        <property name="removeAbandonedTimeout" value="${slave.jdbc.removeAbandonedTimeout}" />
+        <property name="timeBetweenEvictionRunsMillis" value="${slave.jdbc.timeBetweenEvictionRunsMillis}" />
+        <property name="minEvictableIdleTimeMillis" value="${slave.jdbc.minEvictableIdleTimeMillis}" />
+        <property name="validationQuery" value="${slave.jdbc.validationQuery}" />
+        <property name="testWhileIdle" value="${slave.jdbc.testWhileIdle}" />
+        <property name="testOnBorrow" value="${slave.jdbc.testOnBorrow}" />
+        <property name="testOnReturn" value="${slave.jdbc.testOnReturn}" />
+	</bean>
+	
+	<bean id="dataSource" class="com.yzb.util.DynamicDataSource">  
+        <property name="targetDataSources">      
+          <map key-type="java.lang.String">      
+              <!-- write or slave -->    
+             <entry key="slave" value-ref="slaveDataSource"/>      
+             <!-- read or master   -->  
+             <entry key="master" value-ref="masterDataSource"/>      
+          </map>               
+        </property>   
+        <property name="defaultTargetDataSource" ref="masterDataSource"/>      
+      
+    </bean>
+	
 	<!-- Mybatis文件 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="configLocation" value="classpath:mybatis-config.xml" /> 
@@ -58,7 +91,15 @@
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
 	<!-- 声明式开启 -->
-	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" order="1"/>
+	
+	<!-- 为业务逻辑层的方法解析@DataSource注解  为当前线程的routeholder注入数据源key -->   
+    <bean id="dataSourceAspect" class="com.yzb.util.DataSourceAspect" />    
+    <aop:config proxy-target-class="true">    
+        <aop:aspect id="dataSourceAspect" ref="dataSourceAspect" order="2">    
+            <aop:pointcut id="tx" expression="execution(* com.yzb.service.impl..*.*(..)) "/>    
+            <aop:before pointcut-ref="tx" method="before" />                
+        </aop:aspect>    
+    </aop:config> 
 </beans>
