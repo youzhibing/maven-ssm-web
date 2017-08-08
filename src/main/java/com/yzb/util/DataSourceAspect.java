@@ -8,7 +8,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 public class DataSourceAspect
 {
 	/**
-	 * 在dao层方法之前获取datasource对象之前在切面中指定当前线程数据源路由的key
+	 * 在dao层方法获取datasource对象之前，在切面中指定当前线程数据源
 	 */
 	public void before(JoinPoint point)
 	{

@@ -18,7 +18,7 @@ public interface IPersonService {
 	 * @param personId
 	 * @return
 	 */
-	@DataSource("slave")
+	@DataSource("slave")			// 指定使用从数据源
 	Person getPerson(int personId);
 	
 	boolean updatePerson(Person person);

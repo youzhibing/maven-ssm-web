@@ -5,7 +5,7 @@ public class HandleDataSource
 	public static final ThreadLocal<String> holder = new ThreadLocal<String>();
 
 	/**
-	 * 绑定当前线程数据源路由的key
+	 * 绑定当前线程数据源
 	 * 
 	 * @param key
 	 */
@@ -15,7 +15,7 @@ public class HandleDataSource
 	}
 
 	/**
-	 * 获取当前线程的数据源路由的key
+	 * 获取当前线程的数据源
 	 * 
 	 * @return
 	 */

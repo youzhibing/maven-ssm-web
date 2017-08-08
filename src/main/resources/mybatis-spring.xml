@@ -60,6 +60,7 @@
         <property name="testOnReturn" value="${slave.jdbc.testOnReturn}" />
 	</bean>
 	
+	<!-- 动态数据源，根据service接口上的注解来决定取哪个数据源 -->
 	<bean id="dataSource" class="com.yzb.util.DynamicDataSource">  
         <property name="targetDataSources">      
           <map key-type="java.lang.String">      
@@ -94,12 +95,12 @@
 	<!-- 声明式开启 -->
 	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" order="1"/>
 	
-	<!-- 为业务逻辑层的方法解析@DataSource注解  为当前线程的routeholder注入数据源key -->   
+	<!-- 为业务逻辑层的方法解析@DataSource注解  为当前线程的HandleDataSource注入数据源 -->   
     <bean id="dataSourceAspect" class="com.yzb.util.DataSourceAspect" />    
     <aop:config proxy-target-class="true">    
         <aop:aspect id="dataSourceAspect" ref="dataSourceAspect" order="2">    
             <aop:pointcut id="tx" expression="execution(* com.yzb.service.impl..*.*(..)) "/>    
             <aop:before pointcut-ref="tx" method="before" />                
         </aop:aspect>    
-    </aop:config> 
+    </aop:config>
 </beans>
