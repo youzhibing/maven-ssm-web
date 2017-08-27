@@ -1,4 +1,4 @@
-package com.yzb.util;
+package com.yzb.util.datasource;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 

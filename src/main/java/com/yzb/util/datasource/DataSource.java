@@ -1,4 +1,4 @@
-package com.yzb.util;
+package com.yzb.util.datasource;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

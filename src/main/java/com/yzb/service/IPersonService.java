@@ -3,7 +3,7 @@ package com.yzb.service;
 import java.util.List;
 
 import com.yzb.model.Person;
-import com.yzb.util.DataSource;
+import com.yzb.util.datasource.DataSource;
 
 public interface IPersonService {
 
