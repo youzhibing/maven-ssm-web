@@ -20,10 +20,19 @@
             <list>
                 <value>classpath:mysqldb.properties</value>
                 <value>classpath:redis.properties</value>
+                <value>classpath:mail.properties</value>
             </list>
         </property>
     </bean>
     
+    <bean id="mailClient" class="com.yzb.util.mail.JavaMailClient">
+    	<property name="mailHost" value="${mail.host}" />
+    	<property name="mailTransportProtocol" value="${mail.transport.protocol}" />
+    	<property name="mailSmtpAuth" value="${mail.smtp.auth}" />
+    	<property name="mailDebug" value="${mail.debug}" />
+    	<property name="mailUserName" value="${mail.username}" />
+    	<property name="mailPassword" value="${mail.password}" />
+    </bean>
     <!-- 声明式缓存开启 -->
 	<!-- <cache:annotation-driven cache-manager="cacheManager"/>
 	<bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager" c:redis-operations-ref="redisTemplate">

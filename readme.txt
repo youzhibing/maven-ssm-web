@@ -20,3 +20,6 @@ fastjson实现缓存序列化
 	
 mysql主从复制，读写分离
 	http://blog.csdn.net/zhouzhiwengang/article/details/51087920
+	
+java mail
+	http://www.cnblogs.com/xdp-gacl/p/4216311.html
