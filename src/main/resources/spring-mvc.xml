@@ -38,6 +38,9 @@
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 
+	<!-- 对进入DispatcherServlet的URL进行筛查，如果发现是静态资源的请求，就将该请求转由Web应用服务器默认的Servlet处理，如果不是静态资源的请求，才由DispatcherServlet继续处理 -->
+	<mvc:default-servlet-handler/>
+
 	<!-- 对转向页面的路径解析。prefix：前缀， suffix：后缀 -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"

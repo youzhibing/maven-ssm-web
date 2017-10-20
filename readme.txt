@@ -23,3 +23,7 @@ mysql主从复制，读写分离
 	
 java mail
 	http://www.cnblogs.com/xdp-gacl/p/4216311.html
+	
+pdf导出
+	测试地址:http://localhost:8080/maven-ssm-web/pdf/download
+	Freemarker提供了3种加载模板目录的方法:http://blog.csdn.net/gtlishujie/article/details/52300381
