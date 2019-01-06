@@ -1,5 +1,7 @@
 ssm：基本操作，持续更新，不定期的新增功能
 
+推荐阿里云服务器，点我领代金券：[点我领取](https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=djq51vv3)
+
 spring 注入：
 	检测@Value注入问题最好先排查下bean是否被多次扫描，实例化了多次。然后在@PostConstruct中打印出@Value常量。
 	我遇到的情况是ContextLoaderListener和DispatcherServlet都扫描并实例化了@Controller注解类，但是DispatcherServlet实例化的类@Value注入常量失败，
